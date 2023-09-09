@@ -1,0 +1,28 @@
+CREATE TABLE IF NOT EXISTS bookshelf (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT NOT NULL,
+    summary TEXT,
+    category TEXT,
+    nb_pages INTEGER,
+    rating INTEGER CHECK (rating >= 1 AND rating <= 5),
+    author_name TEXT,
+    author_lastname TEXT
+);
+
+INSERT INTO bookshelf (title, summary, category, nb_pages, rating, author_name, author_lastname)
+VALUES
+    ('To Kill a Mockingbird', 'A classic novel about racial injustice in the American South.', 'Fiction', 281, 5, 'Harper', 'Lee'),
+    ('1984', 'A dystopian novel set in a totalitarian society.', 'Science Fiction', 328, 4, 'George', 'Orwell'),
+    ('The Great Gatsby', 'A story of wealth, love, and betrayal during the Jazz Age.', 'Fiction', 180, 5, 'F. Scott', 'Fitzgerald'),
+    ('Pride and Prejudice', 'A timeless romance novel set in the early 19th century.', 'Romance', 279, 5, 'Jane', 'Austen'),
+    ('The Catcher in the Rye', 'A coming-of-age novel about a teenager in New York City.', 'Fiction', 277, 4, 'J.D.', 'Salinger'),
+    ('The Hobbit', 'A fantasy adventure about a hobbit named Bilbo Baggins.', 'Fantasy', 310, 4, 'J.R.R.', 'Tolkien'),
+    ('To the Lighthouse', 'A modernist novel exploring the inner thoughts of characters.', 'Fiction', 209, 4, 'Virginia', 'Woolf'),
+    ('The Hunger Games', 'A dystopian series where teenagers fight to the death in a televised event.', 'Science Fiction', 374, 4, 'Suzanne', 'Collins'),
+    ('Harry Potter and the Sorcerer''s Stone', 'The first book in the beloved Harry Potter series.', 'Fantasy', 309, 5, 'J.K.', 'Rowling'),
+    ('The Lord of the Rings', 'An epic fantasy trilogy set in the world of Middle-earth.', 'Fantasy', 1178, 5, 'J.R.R.', 'Tolkien'),
+    ('The Alchemist', 'A philosophical novel about a shepherd journey to find treasure.', 'Fiction', 163, 4, 'Paulo', 'Coelho'),
+    ('The Shining', 'A horror novel about a family terrifying experiences in a haunted hotel.', 'Horror', 447, 4, 'Stephen', 'King'),
+    ('Gone Girl', 'A psychological thriller about a woman who disappears on her anniversary.', 'Mystery', 432, 4, 'Gillian', 'Flynn'),
+    ('The Girl on the Train', 'A psychological thriller involving a woman who becomes entangled in a murder mystery.', 'Mystery', 325, 3, 'Paula', 'Hawkins'),
+    ('The Fault in Our Stars', 'A young adult novel about two teenagers with cancer who fall in love.', 'Young Adult', 313, 4, 'John', 'Green');
