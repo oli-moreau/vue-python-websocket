@@ -1,19 +1,25 @@
 import asyncio
 import websockets
+import sqlite3
+import json
 
 connected = set()
 
+conn = sqlite3.connect("mydb.db")
+cursor = conn.cursor()
+
 async def handler(websocket, path):
-    # Register websocket connection
     connected.add(websocket)
     try:
+        cursor.execute('SELECT * FROM bookshelf')
+        initial_data = cursor.fetchall()
+        await websocket.send(json.dumps(initial_data))
+        
         async for message in websocket:
-            # Broadcast message to all connected clients
             for client in connected:
                 if client != websocket:
                     await client.send(message)
     finally:
-        # Unregister websocket connection
         connected.remove(websocket)
 
 start_server = websockets.serve(handler, 'localhost', 12345)

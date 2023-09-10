@@ -1,35 +1,20 @@
-@import './base.css';
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
-  font-weight: normal;
+.database-output {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
+.database-output th,
+.database-output td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+.database-output th {
+  background-color: #f2f2f2;
+  font-weight: bold;
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+.database-output tbody tr:nth-child(even) {
+  background-color: #f5f5f5;
 }
